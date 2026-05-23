@@ -1,0 +1,495 @@
+/* ================================================
+   RESET & ROOT
+   ================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --maroon:       #7B1528;
+  --maroon-deep:  #3E0A12;
+  --maroon-mid:   #9B1E35;
+  --cream:        #F5E9D8;
+  --cream-dark:   #DFC9A4;
+  --gold:         #C9A84C;
+  --gold-lt:      #E8CC7A;
+  --gold-pale:    rgba(201, 168, 76, 0.55);
+  --gold-pale2:   rgba(201, 168, 76, 0.35);
+  --text:         #F7EDD9;
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: #0e0206;
+  min-height: 100vh;
+}
+
+.page  { width: 100%; min-height: 100vh; }
+.hidden { display: none !important; }
+
+/* ================================================
+   FORM PAGE
+   ================================================ */
+.form-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(155, 30, 53, 0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 100% 100% at 50% 100%, rgba(62, 10, 18, 0.8) 0%, transparent 60%),
+    linear-gradient(160deg, #3E0A12 0%, #6B1020 40%, #3E0A12 100%);
+}
+
+.form-card {
+  background: var(--cream);
+  width: 100%;
+  max-width: 500px;
+  padding: 50px 44px;
+  border-radius: 3px;
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.4),
+    0 28px 72px rgba(0, 0, 0, 0.65);
+  text-align: center;
+}
+
+/* Brand header in form */
+.form-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 58px;
+  color: var(--maroon);
+  direction: rtl;
+  line-height: 1.3;
+}
+
+.form-eng {
+  font-family: 'Cinzel', serif;
+  font-size: 10.5px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--maroon-mid);
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.gold-divider {
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 22px auto;
+}
+
+.form-heading {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 17px;
+  color: var(--maroon-deep);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.form-sub {
+  font-size: 15px;
+  color: #7a5050;
+  font-style: italic;
+  margin-bottom: 32px;
+}
+
+/* Fields */
+.field-group { text-align: left; margin-bottom: 20px; }
+
+.field-label {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--maroon);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.field-opt {
+  font-family: 'Cormorant Garamond', serif;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+  color: #b0a0a0;
+}
+
+.field-input {
+  width: 100%;
+  padding: 11px 15px;
+  border: 1.5px solid #d5bfb0;
+  border-radius: 2px;
+  background: #fffaf6;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  color: #2a1010;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field-input:focus {
+  border-color: var(--maroon);
+  box-shadow: 0 0 0 3px rgba(123, 21, 40, 0.1);
+}
+
+.field-select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 36px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237B1528' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.field-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f0e8e0;
+}
+
+/* Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 13px;
+  margin-top: 8px;
+  background: var(--maroon);
+  color: var(--cream);
+  border: none;
+  border-radius: 2px;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-primary:hover  { background: var(--maroon-deep); }
+.btn-primary:active { transform: scale(0.99); }
+
+.form-footer {
+  margin-top: 22px;
+  font-size: 12px;
+  color: #b09090;
+  font-style: italic;
+}
+
+/* ================================================
+   CERTIFICATE PAGE
+   ================================================ */
+.cert-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px 16px 56px;
+  background: #0e0206;
+}
+
+.cert-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-ghost {
+  padding: 9px 22px;
+  background: transparent;
+  color: var(--cream-dark);
+  border: 1px solid rgba(223, 201, 164, 0.5);
+  border-radius: 2px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-ghost:hover { background: rgba(255,255,255,0.06); }
+
+.btn-gold {
+  padding: 9px 24px;
+  background: var(--gold);
+  color: #2a0a0f;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-gold:hover    { background: var(--gold-lt); }
+.btn-gold:disabled { opacity: 0.6; cursor: default; }
+
+.cert-viewport {
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 4px;
+}
+
+.cert-hint {
+  margin-top: 18px;
+  font-size: 13px;
+  color: #5a3040;
+  font-style: italic;
+}
+
+/* ================================================
+   THE CERTIFICATE  (1050 × 740 px)
+   ================================================ */
+.certificate {
+  position: relative;
+  width: 1050px;
+  height: 740px;
+  background: var(--maroon);
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px #000, 0 32px 90px rgba(0, 0, 0, 0.85);
+}
+
+/* --- Floral texture --- */
+.cert-texture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='55' height='55'%3E%3Cg fill='%23F5A0A8' opacity='0.2'%3E%3Ccircle cx='27.5' cy='27.5' r='2'/%3E%3Ccircle cx='27.5' cy='19'   r='2.2'/%3E%3Ccircle cx='27.5' cy='36'   r='2.2'/%3E%3Ccircle cx='19'   cy='27.5' r='2.2'/%3E%3Ccircle cx='36'   cy='27.5' r='2.2'/%3E%3Ccircle cx='21.5' cy='21.5' r='1.8'/%3E%3Ccircle cx='33.5' cy='21.5' r='1.8'/%3E%3Ccircle cx='21.5' cy='33.5' r='1.8'/%3E%3Ccircle cx='33.5' cy='33.5' r='1.8'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* --- Spotlight beam --- */
+.cert-spotlight {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 242, 155, 0.58) 0%,
+    rgba(255, 215, 100, 0.30) 22%,
+    rgba(220, 170, 70,  0.12) 45%,
+    transparent 68%
+  );
+  clip-path: polygon(37% 0%, 63% 0%, 82% 100%, 18% 100%);
+}
+
+/* --- Decorative side columns --- */
+.side-col {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 46px;
+  z-index: 2;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='88'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-opacity='0.5' stroke-width='1.2'%3E%3Cpath d='M23 4 Q31 16 23 28 Q15 40 23 52 Q31 64 23 76 Q15 88 23 88'/%3E%3C/g%3E%3Ccircle cx='23' cy='4'  r='3.5' fill='%23C9A84C' fill-opacity='0.55'/%3E%3Ccircle cx='23' cy='28' r='2.5' fill='%23C9A84C' fill-opacity='0.45'/%3E%3Ccircle cx='23' cy='52' r='2.5' fill='%23C9A84C' fill-opacity='0.45'/%3E%3Ccircle cx='23' cy='76' r='2.5' fill='%23C9A84C' fill-opacity='0.45'/%3E%3C/svg%3E");
+  background-repeat: repeat-y;
+  background-position: center top;
+}
+
+.side-left  { left: 0; }
+.side-right { right: 0; transform: scaleX(-1); }
+
+/* --- Double gold border --- */
+.border-outer,
+.border-inner {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.border-outer {
+  inset: 12px;
+  border: 2px solid rgba(201, 168, 76, 0.78);
+}
+
+.border-inner {
+  inset: 19px;
+  border: 1px solid rgba(201, 168, 76, 0.38);
+}
+
+/* --- Corner ornaments --- */
+.corner {
+  position: absolute;
+  z-index: 4;
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1;
+  user-select: none;
+}
+
+.c-tl { top: 4px;    left: 4px; }
+.c-tr { top: 4px;    right: 4px; }
+.c-bl { bottom: 4px; left: 4px; }
+.c-br { bottom: 4px; right: 4px; }
+
+/* ================================================
+   CERTIFICATE CONTENT
+   ================================================ */
+.cert-content {
+  position: absolute;
+  inset: 28px 54px 24px 54px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  color: var(--text);
+  gap: 0;
+}
+
+/* Decorative rule rows */
+.rule-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.rule-bar {
+  flex: 1;
+  height: 1px;
+  background: var(--gold-pale);
+}
+
+.rule-bar.short { max-width: 70px; flex: none; }
+
+.rule-gem {
+  color: var(--gold);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.rule-gem.small { font-size: 10px; }
+
+.thin-rule { opacity: 0.7; }
+
+/* Brand section */
+.cert-brand { text-align: center; line-height: 1; }
+
+.cert-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 50px;
+  color: var(--cream);
+  direction: rtl;
+  line-height: 1.4;
+  padding-bottom: 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
+.cert-eng-brand-spacer {
+  height: 32px;
+}
+
+.cert-eng-brand {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3.5px;
+  color: var(--gold-lt);
+  margin-top: 0;
+}
+
+/* Certificate type */
+.cert-type {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 21px;
+  color: var(--gold-lt);
+  letter-spacing: 1px;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Presented to */
+.cert-presented {
+  font-size: 14.5px;
+  font-style: italic;
+  color: rgba(247, 237, 217, 0.72);
+  letter-spacing: 0.5px;
+}
+
+/* Recipient name — the star of the show */
+.cert-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+  line-height: 1.15;
+}
+
+/* Department */
+.cert-dept {
+  font-family: 'Cinzel', serif;
+  font-size: 11.5px;
+  letter-spacing: 2px;
+  color: var(--gold-lt);
+}
+
+/* Role */
+.cert-role {
+  font-size: 14.5px;
+  font-style: italic;
+  color: rgba(247, 237, 217, 0.78);
+}
+
+/* Body copy */
+.cert-body {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(247, 237, 217, 0.68);
+}
+
+.inline-urdu {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  font-size: 18px;
+  direction: rtl;
+  color: var(--cream);
+}
+
+/* Mentors */
+.cert-mentors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.mentor { text-align: center; min-width: 120px; }
+
+.mentor-line {
+  width: 130px;
+  height: 1px;
+  background: var(--gold-pale2);
+  margin: 0 auto 7px;
+}
+
+.mentor-name {
+  font-family: 'Cinzel', serif;
+  font-size: 11.5px;
+  color: var(--cream);
+  letter-spacing: 0.5px;
+}
+
+.mentor-title {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--gold-lt);
+  margin-top: 2px;
+}
+
+.mentor-sep {
+  color: var(--gold);
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: -6px;
+}

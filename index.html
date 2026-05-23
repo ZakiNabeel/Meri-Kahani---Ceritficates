@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>میری کہانی — Certificate Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== FORM PAGE ===== -->
+  <section id="formSection" class="page form-page">
+    <div class="form-card">
+      <div class="form-brand">
+        <div class="form-urdu">میری کہانی</div>
+        <div class="form-eng">FAST Outreach &amp; Engagement Society</div>
+      </div>
+      <div class="gold-divider"></div>
+      <h2 class="form-heading">Certificate of Appreciation</h2>
+      <p class="form-sub">Enter your details to generate your personalized certificate.</p>
+
+      <div class="field-group">
+        <label class="field-label" for="fname">Full Name</label>
+        <input class="field-input" type="text" id="fname" placeholder="e.g., Ali Ahmed" autocomplete="off" />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="fdept">Department</label>
+        <select class="field-input field-select" id="fdept" onchange="handleDeptChange()">
+          <option value="" disabled selected>Select department…</option>
+          <option value="Events">Events</option>
+          <option value="Technical">Technical</option>
+          <option value="PR Internals">PR Internals</option>
+          <option value="PR Externals">PR Externals</option>
+          <option value="Creatives">Creatives</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="fteam">Team</label>
+        <select class="field-input field-select" id="fteam" disabled>
+          <option value="" disabled selected>Select department first…</option>
+        </select>
+      </div>
+
+      <button class="btn-primary" onclick="handleGenerate()">Generate Certificate &nbsp;✦</button>
+      <p class="form-footer">FAST Outreach &amp; Engagement Society &bull; میری کہانی</p>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATE PAGE ===== -->
+  <section id="certSection" class="page cert-page hidden">
+    <div class="cert-toolbar">
+      <button class="btn-ghost" onclick="handleBack()">← Generate Another</button>
+      <button class="btn-gold" id="downloadBtn" onclick="handleDownload()">⬇&nbsp; Download PNG</button>
+    </div>
+
+    <div class="cert-viewport">
+      <!-- This div is captured by html2canvas -->
+      <div class="certificate" id="certificate">
+
+        <!-- BG layers -->
+        <div class="cert-texture"></div>
+        <div class="cert-spotlight"></div>
+
+        <!-- Decorative side columns -->
+        <div class="side-col side-left"></div>
+        <div class="side-col side-right"></div>
+
+        <!-- Double gold border -->
+        <div class="border-outer"></div>
+        <div class="border-inner"></div>
+
+        <!-- Corner gems -->
+        <span class="corner c-tl">◈</span>
+        <span class="corner c-tr">◈</span>
+        <span class="corner c-bl">◈</span>
+        <span class="corner c-br">◈</span>
+
+        <!-- Content -->
+        <div class="cert-content">
+
+          <!-- Top rule -->
+          <div class="rule-row"><div class="rule-bar"></div><span class="rule-gem">◆</span><div class="rule-bar"></div></div>
+
+          <!-- Brand -->
+          <div class="cert-brand">
+            <div class="cert-urdu">میری کہانی</div>
+            <div class="cert-eng-brand-spacer"></div>
+            <div class="cert-eng-brand">FAST OUTREACH &amp; ENGAGEMENT SOCIETY</div>
+          </div>
+
+          <!-- Thin mid rule -->
+          <div class="rule-row thin-rule"><div class="rule-bar short"></div><span class="rule-gem small">✦</span><div class="rule-bar short"></div></div>
+
+          <!-- Certificate heading -->
+          <div class="cert-type">Certificate of Appreciation</div>
+
+          <!-- Presented to -->
+          <div class="cert-presented">This certificate is proudly presented to</div>
+
+          <!-- Recipient -->
+          <div class="cert-name" id="certName">—</div>
+          <div class="cert-dept">Department of&nbsp;<span id="certDept">—</span></div>
+          <div class="cert-role" id="certRoleBlock">
+            <em id="certTeam">—</em>
+          </div>
+
+          <!-- Body -->
+          <div class="cert-body">
+            in recognition of their unwavering dedication, creativity, and contribution<br/>
+            to the vision and mission of <span class="inline-urdu">میری کہانی</span>
+          </div>
+
+          <!-- Bottom rule -->
+          <div class="rule-row"><div class="rule-bar"></div><span class="rule-gem">◆</span><div class="rule-bar"></div></div>
+
+          <!-- Mentors & leads -->
+          <div class="cert-mentors">
+            <div class="mentor">
+              <div class="mentor-line"></div>
+              <div class="mentor-name">Dr. Muhammad Ali</div>
+              <div class="mentor-title">Mentor</div>
+            </div>
+            <div class="mentor-sep">✦</div>
+            <div class="mentor">
+              <div class="mentor-line"></div>
+              <div class="mentor-name">Ma'am Sanaa Ilyas</div>
+              <div class="mentor-title">Co-Mentor</div>
+            </div>
+            <div class="mentor-sep">✦</div>
+            <div class="mentor">
+              <div class="mentor-line"></div>
+              <div class="mentor-name" id="certDeptLead">—</div>
+              <div class="mentor-title" id="certDeptLeadTitle">Department Lead</div>
+            </div>
+            <div class="mentor-sep">✦</div>
+            <div class="mentor">
+              <div class="mentor-line"></div>
+              <div class="mentor-name">Zaki Nabeel</div>
+              <div class="mentor-title">Campus Lead</div>
+            </div>
+          </div>
+
+        </div><!-- .cert-content -->
+      </div><!-- .certificate -->
+    </div>
+
+    <p class="cert-hint">Scroll horizontally on small screens &bull; Download saves a high-resolution PNG</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
