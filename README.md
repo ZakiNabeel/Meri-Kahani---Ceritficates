@@ -1,7 +1,7 @@
 # میری کہانی — Certificate Generator
 
 A web-based certificate generator for **Meri Kahani**, the FAST Outreach & Engagement Society. Students enter their name, department, and team, and receive a personalized Certificate of Appreciation they can download as a high-resolution PNG.
-<img width="1052" height="737" alt="image" src="https://github.com/user-attachments/assets/998095c5-5ae4-4ebd-af5b-37310b47be97" />
+<img width="1440" height="805" alt="image" src="https://github.com/user-attachments/assets/b723a45e-1298-4715-b85c-44159fd88110" />
 
 ---
 
