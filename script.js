@@ -48,7 +48,7 @@ function handleGenerate() {
   // Populate certificate
   document.getElementById('certName').textContent = name;
   document.getElementById('certDept').textContent = dept;
-  document.getElementById('certTeam').textContent = team + ' Team';
+  document.getElementById('certTeam').textContent = team;
 
   const lead = DEPT_LEADS[dept] || '—';
   document.getElementById('certDeptLead').textContent     = lead;

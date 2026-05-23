@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -ItemType Directory -Force \"D:\\\\Meri Kahani Certificates\\\\.claude\")",
+      "Bash(Out-Null)",
+      "Bash(mkdir -p \"D:/Meri Kahani Certificates/.claude\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
