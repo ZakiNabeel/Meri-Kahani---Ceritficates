@@ -1,5 +1,5 @@
 const DEPT_TEAMS = {
-  Events:        ['Task Force', 'Planning & Research', 'Hosts'],
+  Events:        ['Task Force', 'Planning & Research', 'Hosts', 'Decor'],
   Technical:     ['Web Development', 'Automations'],
   'PR Internals':['Social Media'],
   'PR Externals':['Marketing', 'Sponsorship'],
@@ -85,8 +85,8 @@ async function handleDownload() {
 
     const canvas = await html2canvas(cert, {
       scale: 2.5,
-      useCORS: true,
-      allowTaint: false,
+      useCORS: false,
+      allowTaint: true,
       logging: false,
       backgroundColor: null,
       imageTimeout: 0,
